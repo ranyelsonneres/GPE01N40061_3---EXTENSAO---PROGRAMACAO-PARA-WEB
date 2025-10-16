@@ -7,7 +7,7 @@ const path = require('path');
 //criando o servidor
 const server = http.createServer((req, res) => {
     //definindo o caminho para o arquivo HTML
-    const filePath = path.join(__dirname, 'inde.html');
+    const filePath = path.join(__dirname, 'index.html');
     
     //lendo o arquivo HTML e enviando como resposta
     fs.readFile(filePath, (err, data) => {
