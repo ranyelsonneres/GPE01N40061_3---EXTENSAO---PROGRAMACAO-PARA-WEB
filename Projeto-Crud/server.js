@@ -13,7 +13,15 @@ const db = require('./db');
 app.get('/', (req, res) =>{
     //res.send("front-funcionando");
     res.sendFile(path.join(__dirname, 'public', 'index.html'));
-})
+});
+
+//linkar com a API.JS
+const apiRoutes = require('./routes/api');
+
+//middleware
+app.use(express.json());
+
+app.use('/api/users/', apiRoutes);
 
 //porta do servidor
 app.listen(port, () =>{
