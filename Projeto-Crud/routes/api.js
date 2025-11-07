@@ -17,5 +17,35 @@ router.post('/', (req, res) =>{
         });
 });
 
+//rota para listar os usuários cadastrados no banco
+router.get('/', (req, res) => {
+    db.query('SELECT * FROM users', (err, results) =>{
+        if(err) return res.status(500).send(err);
+        res.json(results);
+    });
+});
+
+//rota para editar usuários
+router.put('/:id', (req, res) => {
+    const {nome, email} = req.body;
+    const {id} = req.params;
+
+    db.query('UPDATE users SET nome = ?, email = ? WHERE id = ?', [nome, email, id], (err) =>{
+        if(err) return res.status(500).send(err);
+        res.json({id, nome, email});
+    });
+});
+
+
+//rota para excluir usuários
+router.delete('/:id', (req, res) =>{
+    const {id} = req.params;
+
+    db.query('DELETE FROM users WHERE id = ?', [id], (err)=>{
+        if(err) return res.status(500).send(err);
+        res.sendStatus(204);
+    });
+});
+
 //exportar o módulo de rotas
 module.exports = router;
