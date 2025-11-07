@@ -3,9 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Projeto Crud</title>
 </head>
 <body>
     <h1>Projeto Crud</h1>
+    <form id="user-form">
+        <label for="nome">Nome:</label>
+        <input type="text" id="nome" placeholder="Nome" required>
+        <label for="email">Email:</label>
+        <input type="text" id="email" placeholder="Email" required>
+
+        <button type="submit">Salvar</button>
+    </form>
+
+    <h2>Lista de usuários cadastrados:</h2>
+    <ul id="user-list"></ul>
+
+    <script src="app.js"></script>
 </body>
 </html>
